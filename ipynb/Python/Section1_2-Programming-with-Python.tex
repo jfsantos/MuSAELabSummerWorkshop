@@ -1,0 +1,1358 @@
+
+% Default to the notebook output style
+
+    
+
+
+% Inherit from the specified cell style.
+
+
+
+
+    
+\documentclass{article}
+
+    
+    
+    \usepackage{graphicx} % Used to insert images
+    \usepackage{adjustbox} % Used to constrain images to a maximum size 
+    \usepackage{color} % Allow colors to be defined
+    \usepackage{enumerate} % Needed for markdown enumerations to work
+    \usepackage{geometry} % Used to adjust the document margins
+    \usepackage{amsmath} % Equations
+    \usepackage{amssymb} % Equations
+    \usepackage[mathletters]{ucs} % Extended unicode (utf-8) support
+    \usepackage[utf8x]{inputenc} % Allow utf-8 characters in the tex document
+    \usepackage{fancyvrb} % verbatim replacement that allows latex
+    \usepackage{grffile} % extends the file name processing of package graphics 
+                         % to support a larger range 
+    % The hyperref package gives us a pdf with properly built
+    % internal navigation ('pdf bookmarks' for the table of contents,
+    % internal cross-reference links, web links for URLs, etc.)
+    \usepackage{hyperref}
+    \usepackage{longtable} % longtable support required by pandoc >1.10
+    \usepackage{booktabs}  % table support for pandoc > 1.12.2
+    
+
+    
+    
+    \definecolor{orange}{cmyk}{0,0.4,0.8,0.2}
+    \definecolor{darkorange}{rgb}{.71,0.21,0.01}
+    \definecolor{darkgreen}{rgb}{.12,.54,.11}
+    \definecolor{myteal}{rgb}{.26, .44, .56}
+    \definecolor{gray}{gray}{0.45}
+    \definecolor{lightgray}{gray}{.95}
+    \definecolor{mediumgray}{gray}{.8}
+    \definecolor{inputbackground}{rgb}{.95, .95, .85}
+    \definecolor{outputbackground}{rgb}{.95, .95, .95}
+    \definecolor{traceback}{rgb}{1, .95, .95}
+    % ansi colors
+    \definecolor{red}{rgb}{.6,0,0}
+    \definecolor{green}{rgb}{0,.65,0}
+    \definecolor{brown}{rgb}{0.6,0.6,0}
+    \definecolor{blue}{rgb}{0,.145,.698}
+    \definecolor{purple}{rgb}{.698,.145,.698}
+    \definecolor{cyan}{rgb}{0,.698,.698}
+    \definecolor{lightgray}{gray}{0.5}
+    
+    % bright ansi colors
+    \definecolor{darkgray}{gray}{0.25}
+    \definecolor{lightred}{rgb}{1.0,0.39,0.28}
+    \definecolor{lightgreen}{rgb}{0.48,0.99,0.0}
+    \definecolor{lightblue}{rgb}{0.53,0.81,0.92}
+    \definecolor{lightpurple}{rgb}{0.87,0.63,0.87}
+    \definecolor{lightcyan}{rgb}{0.5,1.0,0.83}
+    
+    % commands and environments needed by pandoc snippets
+    % extracted from the output of `pandoc -s`
+    \DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+    % Add ',fontsize=\small' for more characters per line
+    \newenvironment{Shaded}{}{}
+    \newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{{#1}}}}
+    \newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.56,0.13,0.00}{{#1}}}
+    \newcommand{\DecValTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\FloatTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\CharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\StringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\CommentTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textit{{#1}}}}
+    \newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{{#1}}}
+    \newcommand{\AlertTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{{#1}}}}
+    \newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.02,0.16,0.49}{{#1}}}
+    \newcommand{\RegionMarkerTok}[1]{{#1}}
+    \newcommand{\ErrorTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{{#1}}}}
+    \newcommand{\NormalTok}[1]{{#1}}
+    
+    % Define a nice break command that doesn't care if a line doesn't already
+    % exist.
+    \def\br{\hspace*{\fill} \\* }
+    % Math Jax compatability definitions
+    \def\gt{>}
+    \def\lt{<}
+    % Document parameters
+    \title{Section1\_2-Programming-with-Python}
+    
+    
+    
+
+    % Pygments definitions
+    
+\makeatletter
+\def\PY@reset{\let\PY@it=\relax \let\PY@bf=\relax%
+    \let\PY@ul=\relax \let\PY@tc=\relax%
+    \let\PY@bc=\relax \let\PY@ff=\relax}
+\def\PY@tok#1{\csname PY@tok@#1\endcsname}
+\def\PY@toks#1+{\ifx\relax#1\empty\else%
+    \PY@tok{#1}\expandafter\PY@toks\fi}
+\def\PY@do#1{\PY@bc{\PY@tc{\PY@ul{%
+    \PY@it{\PY@bf{\PY@ff{#1}}}}}}}
+\def\PY#1#2{\PY@reset\PY@toks#1+\relax+\PY@do{#2}}
+
+\expandafter\def\csname PY@tok@gd\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.63,0.00,0.00}{##1}}}
+\expandafter\def\csname PY@tok@gu\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.50,0.00,0.50}{##1}}}
+\expandafter\def\csname PY@tok@gt\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.27,0.87}{##1}}}
+\expandafter\def\csname PY@tok@gs\endcsname{\let\PY@bf=\textbf}
+\expandafter\def\csname PY@tok@gr\endcsname{\def\PY@tc##1{\textcolor[rgb]{1.00,0.00,0.00}{##1}}}
+\expandafter\def\csname PY@tok@cm\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@vg\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@m\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@mh\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@go\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.53,0.53,0.53}{##1}}}
+\expandafter\def\csname PY@tok@ge\endcsname{\let\PY@it=\textit}
+\expandafter\def\csname PY@tok@vc\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@il\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@cs\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@cp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.74,0.48,0.00}{##1}}}
+\expandafter\def\csname PY@tok@gi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.63,0.00}{##1}}}
+\expandafter\def\csname PY@tok@gh\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.50}{##1}}}
+\expandafter\def\csname PY@tok@ni\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.60,0.60,0.60}{##1}}}
+\expandafter\def\csname PY@tok@nl\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.63,0.63,0.00}{##1}}}
+\expandafter\def\csname PY@tok@nn\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@no\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.53,0.00,0.00}{##1}}}
+\expandafter\def\csname PY@tok@na\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.49,0.56,0.16}{##1}}}
+\expandafter\def\csname PY@tok@nb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@nc\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@nd\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.67,0.13,1.00}{##1}}}
+\expandafter\def\csname PY@tok@ne\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.82,0.25,0.23}{##1}}}
+\expandafter\def\csname PY@tok@nf\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@si\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.53}{##1}}}
+\expandafter\def\csname PY@tok@s2\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@vi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@nt\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@nv\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@s1\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sh\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sc\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sx\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@bp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@c1\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@kc\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@c\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@mf\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@err\endcsname{\def\PY@bc##1{\setlength{\fboxsep}{0pt}\fcolorbox[rgb]{1.00,0.00,0.00}{1,1,1}{\strut ##1}}}
+\expandafter\def\csname PY@tok@kd\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@ss\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@sr\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.53}{##1}}}
+\expandafter\def\csname PY@tok@mo\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@kn\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@mi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@gp\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.50}{##1}}}
+\expandafter\def\csname PY@tok@o\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@kr\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@s\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@kp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@w\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.73,0.73}{##1}}}
+\expandafter\def\csname PY@tok@kt\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.69,0.00,0.25}{##1}}}
+\expandafter\def\csname PY@tok@ow\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.67,0.13,1.00}{##1}}}
+\expandafter\def\csname PY@tok@sb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@k\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@se\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sd\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+
+\def\PYZbs{\char`\\}
+\def\PYZus{\char`\_}
+\def\PYZob{\char`\{}
+\def\PYZcb{\char`\}}
+\def\PYZca{\char`\^}
+\def\PYZam{\char`\&}
+\def\PYZlt{\char`\<}
+\def\PYZgt{\char`\>}
+\def\PYZsh{\char`\#}
+\def\PYZpc{\char`\%}
+\def\PYZdl{\char`\$}
+\def\PYZhy{\char`\-}
+\def\PYZsq{\char`\'}
+\def\PYZdq{\char`\"}
+\def\PYZti{\char`\~}
+% for compatibility with earlier versions
+\def\PYZat{@}
+\def\PYZlb{[}
+\def\PYZrb{]}
+\makeatother
+
+
+    % Exact colors from NB
+    \definecolor{incolor}{rgb}{0.0, 0.0, 0.5}
+    \definecolor{outcolor}{rgb}{0.545, 0.0, 0.0}
+
+
+
+    
+    % Prevent overflowing lines due to hard-to-break entities
+    \sloppy 
+    % Setup hyperref package
+    \hypersetup{
+      breaklinks=true,  % so long urls are correctly broken across lines
+      colorlinks=true,
+      urlcolor=blue,
+      linkcolor=darkorange,
+      citecolor=darkgreen,
+      }
+    % Slightly bigger margins than the latex defaults
+    
+    \geometry{verbose,tmargin=1in,bmargin=1in,lmargin=1in,rmargin=1in}
+    
+    
+
+    \begin{document}
+    
+    
+    \maketitle
+    
+    
+
+    
+    \section{Programming with Python}\label{programming-with-python}
+
+    \subsection{Control Flow Statements}\label{control-flow-statements}
+
+The control flow of a program determines the order in which lines of
+code are executed. All else being equal, Python code is executed
+linearly, in the order that lines appear in the program. However, all is
+not usually equal, and so the appropriate control flow is frequently
+specified with the help of control flow statements. These include loops,
+conditional statements and calls to functions. Let's look at a few of
+these here.
+
+\textbf{\emph{for statements}}\\One way to repeatedly execute a block of
+statements (\emph{i.e.} loop) is to use a \texttt{for} statement. These
+statements iterate over the number of elements in a specified sequence,
+according to the following syntax:
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}1}]:} \PY{k}{for} \PY{n}{letter} \PY{o+ow}{in} \PY{l+s}{\PYZsq{}}\PY{l+s}{ciao}\PY{l+s}{\PYZsq{}}\PY{p}{:}
+            \PY{k}{print}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{give me a \PYZob{}0\PYZcb{}}\PY{l+s}{\PYZsq{}}\PY{o}{.}\PY{n}{format}\PY{p}{(}\PY{n}{letter}\PY{o}{.}\PY{n}{upper}\PY{p}{(}\PY{p}{)}\PY{p}{)}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+give me a C
+give me a I
+give me a A
+give me a O
+    \end{Verbatim}
+
+    Recall that strings are simply regarded as sequences of characters.
+Hence, the above \texttt{for} statement loops over each letter,
+converting each to upper case with the \texttt{upper()} method and
+printing it.
+
+Similarly, as shown in the introduction, list comprehensions may be
+constructed using \texttt{for} statements:
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}2}]:} \PY{p}{[}\PY{n}{i}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{2} \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{l+m+mi}{10}\PY{p}{)}\PY{p}{]}
+\end{Verbatim}
+
+            \begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}2}]:} [0, 1, 4, 9, 16, 25, 36, 49, 64, 81]
+\end{Verbatim}
+        
+    Here, the expression loops over \texttt{range(10)} -- the sequence from
+0 to 9 -- and squares each before placing it in the returned list.
+
+\textbf{\emph{if statements}}\\As the name implies, \texttt{if}
+statements execute particular sections of code depending on some tested
+condition. For example, to code an absolute value function, one might
+employ conditional statements:
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}3}]:} \PY{k}{def} \PY{n+nf}{absval}\PY{p}{(}\PY{n}{some\PYZus{}list}\PY{p}{)}\PY{p}{:}
+        
+            \PY{c}{\PYZsh{} Create empty list}
+            \PY{n}{absolutes} \PY{o}{=} \PY{p}{[}\PY{p}{]}    
+        
+            \PY{c}{\PYZsh{} Loop over elements in some\PYZus{}list}
+            \PY{k}{for} \PY{n}{value} \PY{o+ow}{in} \PY{n}{some\PYZus{}list}\PY{p}{:}
+        
+                \PY{c}{\PYZsh{} Conditional statement}
+                \PY{k}{if} \PY{n}{value}\PY{o}{\PYZlt{}}\PY{l+m+mi}{0}\PY{p}{:}
+                    \PY{c}{\PYZsh{} Negative value}
+                    \PY{n}{absolutes}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{o}{\PYZhy{}}\PY{n}{value}\PY{p}{)}
+        
+                \PY{k}{else}\PY{p}{:}
+                    \PY{c}{\PYZsh{} Positive value}
+                    \PY{n}{absolutes}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{value}\PY{p}{)}
+            
+            \PY{k}{return} \PY{n}{absolutes} 
+\end{Verbatim}
+
+    Here, each value in \texttt{some\_list} is tested for the condition that
+it is negative, in which case it is multiplied by -1, otherwise it is
+appended as-is. For conditions that have more than two possible values,
+the elif statement can be used:
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}4}]:} \PY{n}{x} \PY{o}{=} \PY{l+m+mi}{5}
+        \PY{k}{if} \PY{n}{x} \PY{o}{\PYZlt{}} \PY{l+m+mi}{0}\PY{p}{:}
+            \PY{k}{print}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{x is negative}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+        \PY{k}{elif} \PY{n}{x} \PY{o}{\PYZpc{}} \PY{l+m+mi}{2}\PY{p}{:}
+            \PY{k}{print}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{x is positive and odd}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+        \PY{k}{else}\PY{p}{:}
+            \PY{k}{print}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{x is even and non\PYZhy{}negative}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+x is positive and odd
+    \end{Verbatim}
+
+    \textbf{\emph{while statements}}
+
+A different type of conditional loop is provided by the \texttt{while}
+statement. Rather than iterating a specified number of times, according
+to a given sequence, \texttt{while} executes its block of code
+repeatedly, until its condition is no longer true. For example, suppose
+we want to sample from a truncated normal distribution, where we are
+only interested in positive-valued samples. The following function is
+one solution:
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}5}]:} \PY{c}{\PYZsh{} Import function}
+        \PY{k+kn}{from} \PY{n+nn}{numpy.random} \PY{k+kn}{import} \PY{n}{normal}
+        
+        \PY{k}{def} \PY{n+nf}{truncated\PYZus{}normals}\PY{p}{(}\PY{n}{how\PYZus{}many}\PY{p}{,} \PY{n}{l}\PY{p}{)}\PY{p}{:}
+        
+            \PY{c}{\PYZsh{} Create empty list}
+            \PY{n}{values} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+        
+            \PY{c}{\PYZsh{} Loop until we have specified number of samples}
+            \PY{k}{while} \PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{values}\PY{p}{)} \PY{o}{\PYZlt{}} \PY{n}{how\PYZus{}many}\PY{p}{)}\PY{p}{:}
+        
+                \PY{c}{\PYZsh{} Sample from standard normal}
+                \PY{n}{x} \PY{o}{=} \PY{n}{normal}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,}\PY{l+m+mi}{1}\PY{p}{)}
+        
+                \PY{c}{\PYZsh{} Append if not truncateed}
+                \PY{k}{if} \PY{n}{x} \PY{o}{\PYZgt{}} \PY{n}{l}\PY{p}{:} \PY{n}{values}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{x}\PY{p}{)}
+        
+            \PY{k}{return} \PY{n}{values}    
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}6}]:} \PY{n}{truncated\PYZus{}normals}\PY{p}{(}\PY{l+m+mi}{15}\PY{p}{,} \PY{l+m+mi}{0}\PY{p}{)}
+\end{Verbatim}
+
+            \begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}6}]:} [1.1738372661791174,
+         0.45099478603456566,
+         1.6317748177330285,
+         0.41275970336306655,
+         1.4035699237984376,
+         0.45342045186201724,
+         0.795107166506508,
+         1.803591568428664,
+         0.14792870498175092,
+         0.31721171897525846,
+         0.9227994109843113,
+         1.0430789423408247,
+         2.2330729023818003,
+         1.7023236403370337,
+         0.16640359787626927]
+\end{Verbatim}
+        
+    This function iteratively samples from a standard normal distribution,
+and appends it to the output array if it is positive, stopping to return
+the array once the specified number of values have been added.
+
+Obviously, the body of the \texttt{while} statement should contain code
+that eventually renders the condition false, otherwise the loop will
+never end! An exception to this is if the body of the statement contains
+a \texttt{break} or \texttt{return} statement; in either case, the loop
+will be interrupted.
+
+    \subsection{Error Handling}\label{error-handling}
+
+Inevitably, some code you write will generate errors, at least in some
+situations. Unless we explicitly anticipate and \textbf{handle} these
+errors, they will cause your code to halt (sometimes this is a good
+thing!). Errors are handled using \texttt{try/except} blocks.
+
+If code executed in the \texttt{try} block generates an error, code
+execution moves to the \texttt{except} block. If the exception that is
+specified corresponsd to that which has been raised, the code in the
+\texttt{except} block is executed before continuing; otherwise, the
+exception is carried out and the code is halted.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}7}]:} \PY{n}{absval}\PY{p}{(}\PY{o}{\PYZhy{}}\PY{l+m+mi}{5}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+
+        ---------------------------------------------------------------------------
+    TypeError                                 Traceback (most recent call last)
+
+        <ipython-input-7-241bbde36660> in <module>()
+    ----> 1 absval(-5)
+    
+
+        <ipython-input-3-e94eca0d977f> in absval(some\_list)
+          5 
+          6     \# Loop over elements in some\_list
+    ----> 7     for value in some\_list:
+          8 
+          9         \# Conditional statement
+
+
+        TypeError: 'int' object is not iterable
+
+    \end{Verbatim}
+
+    In the call to \texttt{absval}, we passed a single negative integer,
+whereas the function expects some sort of iterable data structure. Other
+than changing the function itself, we can avoid this error using
+exception handling.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}8}]:} \PY{n}{x} \PY{o}{=} \PY{o}{\PYZhy{}}\PY{l+m+mi}{5}
+        \PY{k}{try}\PY{p}{:}
+            \PY{k}{print}\PY{p}{(}\PY{n}{absval}\PY{p}{(}\PY{n}{x}\PY{p}{)}\PY{p}{)}
+        \PY{k}{except} \PY{n+ne}{TypeError}\PY{p}{:}
+            \PY{k}{print}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{The argument to absval must be iterable!}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+The argument to absval must be iterable!
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}9}]:} \PY{n}{x} \PY{o}{=} \PY{o}{\PYZhy{}}\PY{l+m+mi}{5}
+        \PY{k}{try}\PY{p}{:}
+            \PY{k}{print}\PY{p}{(}\PY{n}{absval}\PY{p}{(}\PY{n}{x}\PY{p}{)}\PY{p}{)}
+        \PY{k}{except} \PY{n+ne}{TypeError}\PY{p}{:}
+            \PY{k}{print}\PY{p}{(}\PY{n}{absval}\PY{p}{(}\PY{p}{[}\PY{n}{x}\PY{p}{]}\PY{p}{)}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+[5]
+    \end{Verbatim}
+
+    We can raise exceptions manually by using the \texttt{raise} expression.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}10}]:} \PY{k}{raise} \PY{n+ne}{ValueError}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{This is the wrong value}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+
+        ---------------------------------------------------------------------------
+    ValueError                                Traceback (most recent call last)
+
+        <ipython-input-10-7b8b3dfef9b4> in <module>()
+    ----> 1 raise ValueError('This is the wrong value')
+    
+
+        ValueError: This is the wrong value
+
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}11}]:} \PY{k}{try}\PY{p}{:}
+             \PY{k}{raise} \PY{n+ne}{ValueError}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{This is the wrong value}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+         \PY{k}{except} \PY{n+ne}{ValueError}\PY{p}{:}
+             \PY{k}{pass}
+\end{Verbatim}
+
+    \subsection{Importing and Manipulating
+Data}\label{importing-and-manipulating-data}
+
+Python includes operations for importing and exporting data from files
+and binary objects, and third-party packages exist for database
+connectivity. The easiest way to import data from a file is to parse
+delimited text file, which can usually be exported from spreadsheets and
+databases. In fact, file is a built-in type in python. Data may be read
+from and written to regular files by specifying them as file objects:
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}12}]:} \PY{n}{microbiome} \PY{o}{=} \PY{n+nb}{open}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{../data/microbiome.csv}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+\end{Verbatim}
+
+    Here, a file containing microbiome data in a comma-delimited format is
+opened, and assigned to an object, called \texttt{microbiome}. The next
+step is to transfer the information in the file to a usable data
+structure in Python. Since this dataset contains four variables, the
+name of the taxon, the patient identifier (de-identified), the bacteria
+count in tissue and the bacteria count in stool, it is convenient to use
+a dictionary. This allows each variable to be specified by name.
+
+First, a dictionary object is initialized, with appropriate keys and
+corresponding lists, initially empty. Since the file has a header, we
+can use it to generate an empty dict:
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}13}]:} \PY{n}{column\PYZus{}names} \PY{o}{=} \PY{n}{microbiome}\PY{o}{.}\PY{n}{next}\PY{p}{(}\PY{p}{)}\PY{o}{.}\PY{n}{rstrip}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s+se}{\PYZbs{}n}\PY{l+s}{\PYZsq{}}\PY{p}{)}\PY{o}{.}\PY{n}{split}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{,}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}14}]:} \PY{n}{mb\PYZus{}dict} \PY{o}{=} \PY{p}{\PYZob{}}\PY{n}{name}\PY{p}{:}\PY{p}{[}\PY{p}{]} \PY{k}{for} \PY{n}{name} \PY{o+ow}{in} \PY{n}{column\PYZus{}names}\PY{p}{\PYZcb{}}
+\end{Verbatim}
+
+    It is then a matter of looping over each line of the data. Python file
+objects are iterable, essentially just a sequence of lines, and fit
+naturally into a for statement.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}15}]:} \PY{k}{for} \PY{n}{line} \PY{o+ow}{in} \PY{n}{microbiome}\PY{p}{:}
+             \PY{n}{taxon}\PY{p}{,}\PY{n}{patient}\PY{p}{,}\PY{n}{tissue}\PY{p}{,}\PY{n}{stool} \PY{o}{=} \PY{n}{line}\PY{o}{.}\PY{n}{rstrip}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s+se}{\PYZbs{}n}\PY{l+s}{\PYZsq{}}\PY{p}{)}\PY{o}{.}\PY{n}{split}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{,}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+             \PY{n}{mb\PYZus{}dict}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{Taxon}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{taxon}\PY{p}{)}
+             \PY{n}{mb\PYZus{}dict}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{Patient}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n+nb}{int}\PY{p}{(}\PY{n}{patient}\PY{p}{)}\PY{p}{)}
+             \PY{n}{mb\PYZus{}dict}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{Tissue}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n+nb}{int}\PY{p}{(}\PY{n}{tissue}\PY{p}{)}\PY{p}{)}
+             \PY{n}{mb\PYZus{}dict}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{Stool}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n+nb}{int}\PY{p}{(}\PY{n}{stool}\PY{p}{)}\PY{p}{)}
+\end{Verbatim}
+
+    For each line in the file, data elements are split by the comma
+delimiter, using the \texttt{split} method that is built-in to string
+objects. Each datum is subsequently appended to the appropriate list
+stored in the dictionary. After all the data is parsed, it is polite to
+close the file:
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}16}]:} \PY{n}{microbiome}\PY{o}{.}\PY{n}{close}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+    The data can now be readily accessed by indexing the appropriate
+variable by name:
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}17}]:} \PY{n}{mb\PYZus{}dict}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{Tissue}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{p}{[}\PY{p}{:}\PY{l+m+mi}{10}\PY{p}{]}
+\end{Verbatim}
+
+            \begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}17}]:} [632, 136, 1174, 408, 831, 693, 718, 173, 228, 162]
+\end{Verbatim}
+        
+    A second approach to importing data involves interfacing directly with a
+relational database management system. Relational databases are far more
+efficient for storing, maintaining and querying data than plain text
+files or spreadsheets, particularly for large datasets or multiple
+tables. A number of third parties have created packages for database
+access in Python. For example, \texttt{sqlite3} is a package that
+provides connectivity for SQLite databases:
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}18}]:} \PY{k+kn}{import} \PY{n+nn}{sqlite3}		\PY{c}{\PYZsh{} import database package, and connect}
+         \PY{n}{db} \PY{o}{=} \PY{n}{sqlite3}\PY{o}{.}\PY{n}{connect}\PY{p}{(}\PY{n}{database}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{../data/baseball\PYZhy{}archive\PYZhy{}2011.sqlite}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+         \PY{n}{cur} \PY{o}{=} \PY{n}{db}\PY{o}{.}\PY{n}{cursor}\PY{p}{(}\PY{p}{)}	\PY{c}{\PYZsh{} create a cursor object to mediate}
+         				    \PY{c}{\PYZsh{} communication with database}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}19}]:} \PY{c}{\PYZsh{} run query}
+         \PY{n}{cur}\PY{o}{.}\PY{n}{execute}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{SELECT playerid, HR, SB FROM Batting WHERE yearID=1970}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+         \PY{n}{baseball} \PY{o}{=} \PY{n}{cur}\PY{o}{.}\PY{n}{fetchall}\PY{p}{(}\PY{p}{)}	\PY{c}{\PYZsh{} fetch data, and assign to variable}
+         \PY{n}{baseball}\PY{p}{[}\PY{p}{:}\PY{l+m+mi}{10}\PY{p}{]}
+\end{Verbatim}
+
+            \begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}19}]:} [(u'aaronha01', 38, 9),
+          (u'aaronto01', 2, 0),
+          (u'abernte02', 0, 0),
+          (u'abernte02', 0, 0),
+          (u'abernte02', 0, 0),
+          (u'acosted01', 0, 0),
+          (u'adairje01', 0, 0),
+          (u'ageeto01', 24, 31),
+          (u'aguirha01', 0, 0),
+          (u'akerja01', 0, 0)]
+\end{Verbatim}
+        
+    \subsection{Functions}\label{functions}
+
+Python uses the \texttt{def} statement to encapsulate code into a
+callable function. Here again is a very simple Python function:
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}20}]:} \PY{c}{\PYZsh{} Function for calulating the mean of some data}
+         \PY{k}{def} \PY{n+nf}{mean}\PY{p}{(}\PY{n}{data}\PY{p}{)}\PY{p}{:}
+         
+             \PY{c}{\PYZsh{} Initialize sum to zero}
+             \PY{n}{sum\PYZus{}x} \PY{o}{=} \PY{l+m+mf}{0.0}
+         
+             \PY{c}{\PYZsh{} Loop over data}
+             \PY{k}{for} \PY{n}{x} \PY{o+ow}{in} \PY{n}{data}\PY{p}{:}
+         
+                 \PY{c}{\PYZsh{} Add to sum}
+                 \PY{n}{sum\PYZus{}x} \PY{o}{+}\PY{o}{=} \PY{n}{x} 
+             
+             \PY{c}{\PYZsh{} Divide by number of elements in list, and return}
+             \PY{k}{return} \PY{n}{sum\PYZus{}x} \PY{o}{/} \PY{n+nb}{len}\PY{p}{(}\PY{n}{data}\PY{p}{)}
+\end{Verbatim}
+
+    As we can see, arguments are specified in parentheses following the
+function name. If there are sensible ``default'' values, they can be
+specified as a \emph{keyword argument}.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}21}]:} \PY{k}{def} \PY{n+nf}{var}\PY{p}{(}\PY{n}{data}\PY{p}{,} \PY{n}{sample}\PY{o}{=}\PY{n+nb+bp}{True}\PY{p}{)}\PY{p}{:}
+         
+             \PY{c}{\PYZsh{} Get mean of data from function above}
+             \PY{n}{x\PYZus{}bar} \PY{o}{=} \PY{n}{mean}\PY{p}{(}\PY{n}{data}\PY{p}{)}
+         
+             \PY{c}{\PYZsh{} Do sum of squares in one line}
+             \PY{n}{sum\PYZus{}squares} \PY{o}{=} \PY{n+nb}{sum}\PY{p}{(}\PY{p}{[}\PY{p}{(}\PY{n}{x} \PY{o}{\PYZhy{}} \PY{n}{x\PYZus{}bar}\PY{p}{)}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{2} \PY{k}{for} \PY{n}{x} \PY{o+ow}{in} \PY{n}{data}\PY{p}{]}\PY{p}{)}
+         
+             \PY{c}{\PYZsh{} Divide by n\PYZhy{}1 and return}
+             \PY{k}{if} \PY{n}{sample}\PY{p}{:}
+                 \PY{k}{return} \PY{n}{sum\PYZus{}squares}\PY{o}{/}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{data}\PY{p}{)}\PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{p}{)}
+             \PY{k}{return} \PY{n}{sum\PYZus{}squares}\PY{o}{/}\PY{n+nb}{len}\PY{p}{(}\PY{n}{data}\PY{p}{)}
+\end{Verbatim}
+
+    Non-keyword arguments must always predede keyword arguments, and must
+always be presented in order; order is not important for keyword
+arguments.
+
+Arguments can also be passed to functions as a
+\texttt{tuple}/\texttt{list}/\texttt{dict} using the asterisk notation.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}22}]:} \PY{k}{def} \PY{n+nf}{some\PYZus{}computation}\PY{p}{(}\PY{n}{a}\PY{o}{=}\PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{p}{,} \PY{n}{b}\PY{o}{=}\PY{l+m+mf}{4.3}\PY{p}{,} \PY{n}{c}\PY{o}{=}\PY{l+m+mi}{7}\PY{p}{)}\PY{p}{:}
+             \PY{k}{return} \PY{p}{(}\PY{n}{a} \PY{o}{+} \PY{n}{b}\PY{p}{)} \PY{o}{/} \PY{n+nb}{float}\PY{p}{(}\PY{n}{c}\PY{p}{)}
+         
+         \PY{n}{args} \PY{o}{=} \PY{p}{(}\PY{l+m+mi}{5}\PY{p}{,} \PY{l+m+mi}{4}\PY{p}{,} \PY{l+m+mi}{3}\PY{p}{)}
+         \PY{n}{some\PYZus{}computation}\PY{p}{(}\PY{o}{*}\PY{n}{args}\PY{p}{)}
+\end{Verbatim}
+
+            \begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}22}]:} 3.0
+\end{Verbatim}
+        
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}23}]:} \PY{n}{kwargs} \PY{o}{=} \PY{p}{\PYZob{}}\PY{l+s}{\PYZsq{}}\PY{l+s}{b}\PY{l+s}{\PYZsq{}}\PY{p}{:}\PY{l+m+mi}{4}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{a}\PY{l+s}{\PYZsq{}}\PY{p}{:}\PY{l+m+mi}{5}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{c}\PY{l+s}{\PYZsq{}}\PY{p}{:}\PY{l+m+mi}{3}\PY{p}{\PYZcb{}}
+         \PY{n}{some\PYZus{}computation}\PY{p}{(}\PY{o}{*}\PY{o}{*}\PY{n}{kwargs}\PY{p}{)}
+\end{Verbatim}
+
+            \begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}23}]:} 3.0
+\end{Verbatim}
+        
+    The \texttt{lambda} statement creates anonymous one-line functions that
+can simply be assigned to a name.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}24}]:} \PY{k+kn}{import} \PY{n+nn}{numpy} \PY{k+kn}{as} \PY{n+nn}{np}
+         \PY{n}{normalize} \PY{o}{=} \PY{k}{lambda} \PY{n}{data}\PY{p}{:} \PY{p}{(}\PY{n}{np}\PY{o}{.}\PY{n}{array}\PY{p}{(}\PY{n}{data}\PY{p}{)} \PY{o}{\PYZhy{}} \PY{n}{np}\PY{o}{.}\PY{n}{mean}\PY{p}{(}\PY{n}{data}\PY{p}{)}\PY{p}{)} \PY{o}{/} \PY{n}{np}\PY{o}{.}\PY{n}{std}\PY{p}{(}\PY{n}{data}\PY{p}{)}
+\end{Verbatim}
+
+    or not:
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}25}]:} \PY{p}{(}\PY{k}{lambda} \PY{n}{data}\PY{p}{:} \PY{p}{(}\PY{n}{np}\PY{o}{.}\PY{n}{array}\PY{p}{(}\PY{n}{data}\PY{p}{)} \PY{o}{\PYZhy{}} \PY{n}{np}\PY{o}{.}\PY{n}{mean}\PY{p}{(}\PY{n}{data}\PY{p}{)}\PY{p}{)} \PY{o}{/} \PY{n}{np}\PY{o}{.}\PY{n}{std}\PY{p}{(}\PY{n}{data}\PY{p}{)}\PY{p}{)}\PY{p}{(}\PY{p}{[}\PY{l+m+mi}{5}\PY{p}{,}\PY{l+m+mi}{8}\PY{p}{,}\PY{l+m+mi}{3}\PY{p}{,}\PY{l+m+mi}{8}\PY{p}{,}\PY{l+m+mi}{3}\PY{p}{,}\PY{l+m+mi}{1}\PY{p}{,}\PY{l+m+mi}{2}\PY{p}{,}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{)}
+\end{Verbatim}
+
+            \begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}25}]:} array([ 0.42192651,  1.54706386, -0.32816506,  1.54706386, -0.32816506,
+                -1.07825663, -0.70321085, -1.07825663])
+\end{Verbatim}
+        
+    Python has several built-in, higher-order functions that are useful.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}26}]:} \PY{n+nb}{filter}\PY{p}{(}\PY{k}{lambda} \PY{n}{x}\PY{p}{:} \PY{n}{x} \PY{o}{\PYZgt{}} \PY{l+m+mi}{5}\PY{p}{,} \PY{n+nb}{range}\PY{p}{(}\PY{l+m+mi}{10}\PY{p}{)}\PY{p}{)}
+\end{Verbatim}
+
+            \begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}26}]:} [6, 7, 8, 9]
+\end{Verbatim}
+        
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}27}]:} \PY{n+nb}{abs}\PY{p}{(}\PY{p}{[}\PY{l+m+mi}{5}\PY{p}{,}\PY{o}{\PYZhy{}}\PY{l+m+mi}{6}\PY{p}{]}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+
+        ---------------------------------------------------------------------------
+    TypeError                                 Traceback (most recent call last)
+
+        <ipython-input-27-2fc5ae37d9b8> in <module>()
+    ----> 1 abs([5,-6])
+    
+
+        TypeError: bad operand type for abs(): 'list'
+
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}28}]:} \PY{n+nb}{map}\PY{p}{(}\PY{n+nb}{abs}\PY{p}{,} \PY{p}{[}\PY{l+m+mi}{5}\PY{p}{,} \PY{o}{\PYZhy{}}\PY{l+m+mi}{6}\PY{p}{]}\PY{p}{)}
+\end{Verbatim}
+
+            \begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}28}]:} [5, 6]
+\end{Verbatim}
+        
+    \subsection{Example: Least Squares
+Estimation}\label{example-least-squares-estimation}
+
+Lets try coding a statistical function. Suppose we want to estimate the
+parameters of a simple linear regression model. The objective of
+regression analysis is to specify an equation that will predict some
+response variable $Y$ based on a set of predictor variables $X$. This is
+done by fitting parameter values $\beta$ of a regression model using
+extant data for $X$ and $Y$. This equation has the form:
+
+\[Y = X\beta + \epsilon\]
+
+where $\epsilon$ is a vector of errors. One way to fit this model is
+using the method of \emph{least squares}, which is given by:
+
+\[\hat{\beta} = (X\prime X)^{-1}X\prime Y\]
+
+We can write a function that calculates this estimate, with the help of
+some functions from other modules:
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}29}]:} \PY{k+kn}{from} \PY{n+nn}{numpy.linalg} \PY{k+kn}{import} \PY{n}{inv}
+         \PY{k+kn}{from} \PY{n+nn}{numpy} \PY{k+kn}{import} \PY{n}{transpose}\PY{p}{,} \PY{n}{array}\PY{p}{,} \PY{n}{dot}
+\end{Verbatim}
+
+    We will call this function \texttt{solve}, requiring the predictor and
+response variables as arguments. For simplicity, we will restrict the
+function to univariate regression, whereby only a single slope and
+intercept are estimated:
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}30}]:} \PY{k}{def} \PY{n+nf}{solve}\PY{p}{(}\PY{n}{x}\PY{p}{,}\PY{n}{y}\PY{p}{)}\PY{p}{:}
+             \PY{l+s}{\PYZsq{}}\PY{l+s}{Estimates regession coefficents from data}\PY{l+s}{\PYZsq{}}
+         
+             \PY{l+s+sd}{\PYZsq{}\PYZsq{}\PYZsq{}}
+         \PY{l+s+sd}{    The first step is to specify the design matrix. For this, }
+         \PY{l+s+sd}{    we need to create a vector of ones (corresponding to the intercept term, }
+         \PY{l+s+sd}{    and along with x, create a n x 2 array:}
+         \PY{l+s+sd}{    \PYZsq{}\PYZsq{}\PYZsq{}}
+             \PY{n}{X} \PY{o}{=} \PY{n}{array}\PY{p}{(}\PY{p}{[}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{o}{*}\PY{n+nb}{len}\PY{p}{(}\PY{n}{x}\PY{p}{)}\PY{p}{,} \PY{n}{x}\PY{p}{]}\PY{p}{)}
+         
+             \PY{l+s+sd}{\PYZsq{}\PYZsq{}\PYZsq{}}
+         \PY{l+s+sd}{    An array is a data structure from the numpy package, similar to a list, }
+         \PY{l+s+sd}{    but allowing for multiple dimensions. Next, we calculate the transpose of x, }
+         \PY{l+s+sd}{    using another numpy function, transpose}
+         \PY{l+s+sd}{    \PYZsq{}\PYZsq{}\PYZsq{}}
+             \PY{n}{Xt} \PY{o}{=} \PY{n}{transpose}\PY{p}{(}\PY{n}{X}\PY{p}{)}
+         
+             \PY{l+s+sd}{\PYZsq{}\PYZsq{}\PYZsq{}}
+         \PY{l+s+sd}{    Finally, we use the matrix multiplication function dot, also from numpy }
+         \PY{l+s+sd}{    to calculate the dot product. The inverse function is provided by the LinearAlgebra }
+         \PY{l+s+sd}{    package. Provided that x is not singular (which would raise an exception), this }
+         \PY{l+s+sd}{    yields estimates of the intercept and slope, as an array}
+         \PY{l+s+sd}{    \PYZsq{}\PYZsq{}\PYZsq{}}
+             \PY{n}{b\PYZus{}hat} \PY{o}{=} \PY{n}{dot}\PY{p}{(}\PY{n}{inv}\PY{p}{(}\PY{n}{dot}\PY{p}{(}\PY{n}{X}\PY{p}{,}\PY{n}{Xt}\PY{p}{)}\PY{p}{)}\PY{p}{,} \PY{n}{dot}\PY{p}{(}\PY{n}{X}\PY{p}{,}\PY{n}{y}\PY{p}{)}\PY{p}{)}
+         
+             \PY{k}{return} \PY{n}{b\PYZus{}hat} 
+\end{Verbatim}
+
+    Here is solve in action:
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}31}]:} \PY{n}{solve}\PY{p}{(}\PY{p}{(}\PY{l+m+mi}{10}\PY{p}{,}\PY{l+m+mi}{5}\PY{p}{,}\PY{l+m+mi}{10}\PY{p}{,}\PY{l+m+mi}{11}\PY{p}{,}\PY{l+m+mi}{14}\PY{p}{)}\PY{p}{,}\PY{p}{(}\PY{o}{\PYZhy{}}\PY{l+m+mi}{4}\PY{p}{,}\PY{l+m+mi}{3}\PY{p}{,}\PY{l+m+mi}{0}\PY{p}{,}\PY{l+m+mi}{23}\PY{p}{,}\PY{l+m+mf}{0.6}\PY{p}{)}\PY{p}{)}
+\end{Verbatim}
+
+            \begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}31}]:} array([ 2.04380952,  0.24761905])
+\end{Verbatim}
+        
+    \subsection{Object-oriented
+Programming}\label{object-oriented-programming}
+
+As previously stated, Python is an object-oriented programming (OOP)
+language, in contrast to procedural languages like FORTRAN and C. As the
+name implies, object-oriented languages employ objects to create
+convenient abstractions of data structures. This allows for more
+flexible programs, fewer lines of code, and a more natural programming
+paradigm in general. An object is simply a modular unit of data and
+associated functions, related to the state and behavior, respectively,
+of some abstract entity. Object-oriented languages group similar objects
+into classes. For example, consider a Python class representing a bird:
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}32}]:} \PY{k}{class} \PY{n+nc}{bird}\PY{p}{:}
+             \PY{c}{\PYZsh{} Class representing a bird}
+         
+             \PY{n}{name} \PY{o}{=} \PY{l+s}{\PYZsq{}}\PY{l+s}{bird}\PY{l+s}{\PYZsq{}}
+             
+             \PY{k}{def} \PY{n+nf}{\PYZus{}\PYZus{}init\PYZus{}\PYZus{}}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{,} \PY{n}{sex}\PY{p}{)}\PY{p}{:}
+                 \PY{c}{\PYZsh{} Initialization method}
+                 
+                 \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{sex} \PY{o}{=} \PY{n}{sex}
+         	
+             \PY{k}{def} \PY{n+nf}{fly}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{)}\PY{p}{:}
+                 \PY{c}{\PYZsh{} Makes bird fly}
+         
+                 \PY{k}{print}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{Flying!}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+                 
+             \PY{k}{def} \PY{n+nf}{nest}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{)}\PY{p}{:}
+                 \PY{c}{\PYZsh{} Makes bird build nest}
+         
+                 \PY{k}{print}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{Building nest ...}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+                 
+             \PY{n+nd}{@classmethod}
+             \PY{k}{def} \PY{n+nf}{get\PYZus{}name}\PY{p}{(}\PY{n}{cls}\PY{p}{)}\PY{p}{:}
+                 \PY{c}{\PYZsh{} Class methods are shared among instances}
+                 
+                 \PY{k}{return} \PY{n}{cls}\PY{o}{.}\PY{n}{name}
+\end{Verbatim}
+
+    You will notice that this \texttt{bird} class is simply a container for
+two functions (called \emph{methods} in Python), \texttt{fly} and
+\texttt{nest}, as well as one attribute, \texttt{name}. The methods
+represent functions in common with all members of this class. You can
+run this code in Python, and create birds:
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}33}]:} \PY{n}{Tweety} \PY{o}{=} \PY{n}{bird}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{male}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+         \PY{n}{Tweety}\PY{o}{.}\PY{n}{name}
+\end{Verbatim}
+
+            \begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}33}]:} 'bird'
+\end{Verbatim}
+        
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}34}]:} \PY{n}{Tweety}\PY{o}{.}\PY{n}{fly}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+Flying!
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}35}]:} \PY{n}{Foghorn} \PY{o}{=} \PY{n}{bird}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{male}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+         \PY{n}{Foghorn}\PY{o}{.}\PY{n}{nest}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+Building nest \ldots
+    \end{Verbatim}
+
+    A \texttt{classmethod} can be called without instantiating an object.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}36}]:} \PY{n}{bird}\PY{o}{.}\PY{n}{get\PYZus{}name}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+            \begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}36}]:} 'bird'
+\end{Verbatim}
+        
+    As many instances of the \texttt{bird} class can be generated as
+desired, though it may quickly become boring. One of the important
+benefits of using object-oriented classes is code re-use. For example,
+we may want more specific kinds of birds, with unique functionality:
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}37}]:} \PY{k}{class} \PY{n+nc}{duck}\PY{p}{(}\PY{n}{bird}\PY{p}{)}\PY{p}{:}
+             \PY{c}{\PYZsh{} Duck is a subclass of bird}
+         
+             \PY{n}{name} \PY{o}{=} \PY{l+s}{\PYZsq{}}\PY{l+s}{duck}\PY{l+s}{\PYZsq{}}
+             
+             \PY{k}{def} \PY{n+nf}{swim}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{)}\PY{p}{:}
+                 \PY{c}{\PYZsh{} Ducks can swim}
+         
+                 \PY{k}{print}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{Swimming!}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+         	
+             \PY{k}{def} \PY{n+nf}{quack}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{,}\PY{n}{n}\PY{p}{)}\PY{p}{:}
+                 \PY{c}{\PYZsh{} Ducks can quack}
+             
+                 \PY{k}{print}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{Quack! }\PY{l+s}{\PYZsq{}} \PY{o}{*} \PY{n}{n}\PY{p}{)}
+\end{Verbatim}
+
+    Notice that this new \texttt{duck} class refers to the \texttt{bird}
+class in parentheses after the class declaration; this is called
+\textbf{inheritance}. The subclass \texttt{duck} automatically inherits
+all of the variables and methods of the superclass, but allows new
+functions or variables to be added. In addition to flying and
+best-building, our duck can also swim and quack:
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}38}]:} \PY{n}{Daffy} \PY{o}{=} \PY{n}{duck}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{male}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+         \PY{n}{Daffy}\PY{o}{.}\PY{n}{swim}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+Swimming!
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}39}]:} \PY{n}{Daffy}\PY{o}{.}\PY{n}{quack}\PY{p}{(}\PY{l+m+mi}{3}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+Quack! Quack! Quack!
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}40}]:} \PY{n}{Daffy}\PY{o}{.}\PY{n}{nest}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+Building nest \ldots
+    \end{Verbatim}
+
+    Along with adding new variables and methods, a subclass can also
+override existing variables and methods of the superclass. For example,
+one might define \texttt{fly} in the \texttt{duck} subclass to return an
+entirely different string. It is easy to see how inheritance promotes
+code re-use, sometimes dramatically reducing development time. Classes
+which are very similar need not be coded repetitiously, but rather, just
+extended from a single superclass.
+
+    This brief introduction to object-oriented programming is intended only
+to introduce new users of Python to this programming paradigm. There are
+many more salient object-oriented topics, including interfaces,
+composition, and introspection. I encourage interested readers to refer
+to any number of current Python and OOP books for a more comprehensive
+treatment.
+
+    \subsection{In Python, everything is an
+object}\label{in-python-everything-is-an-object}
+
+Everything (and I mean \emph{everything}) in Python is an object, in the
+sense that they possess attributes, such as methods and variables, that
+we usually associate with more ``structured'' objects like those we
+created above.
+
+Check it out:
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}41}]:} \PY{n+nb}{dir}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{)}
+\end{Verbatim}
+
+            \begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}41}]:} ['\_\_abs\_\_',
+          '\_\_add\_\_',
+          '\_\_and\_\_',
+          '\_\_class\_\_',
+          '\_\_cmp\_\_',
+          '\_\_coerce\_\_',
+          '\_\_delattr\_\_',
+          '\_\_div\_\_',
+          '\_\_divmod\_\_',
+          '\_\_doc\_\_',
+          '\_\_float\_\_',
+          '\_\_floordiv\_\_',
+          '\_\_format\_\_',
+          '\_\_getattribute\_\_',
+          '\_\_getnewargs\_\_',
+          '\_\_hash\_\_',
+          '\_\_hex\_\_',
+          '\_\_index\_\_',
+          '\_\_init\_\_',
+          '\_\_int\_\_',
+          '\_\_invert\_\_',
+          '\_\_long\_\_',
+          '\_\_lshift\_\_',
+          '\_\_mod\_\_',
+          '\_\_mul\_\_',
+          '\_\_neg\_\_',
+          '\_\_new\_\_',
+          '\_\_nonzero\_\_',
+          '\_\_oct\_\_',
+          '\_\_or\_\_',
+          '\_\_pos\_\_',
+          '\_\_pow\_\_',
+          '\_\_radd\_\_',
+          '\_\_rand\_\_',
+          '\_\_rdiv\_\_',
+          '\_\_rdivmod\_\_',
+          '\_\_reduce\_\_',
+          '\_\_reduce\_ex\_\_',
+          '\_\_repr\_\_',
+          '\_\_rfloordiv\_\_',
+          '\_\_rlshift\_\_',
+          '\_\_rmod\_\_',
+          '\_\_rmul\_\_',
+          '\_\_ror\_\_',
+          '\_\_rpow\_\_',
+          '\_\_rrshift\_\_',
+          '\_\_rshift\_\_',
+          '\_\_rsub\_\_',
+          '\_\_rtruediv\_\_',
+          '\_\_rxor\_\_',
+          '\_\_setattr\_\_',
+          '\_\_sizeof\_\_',
+          '\_\_str\_\_',
+          '\_\_sub\_\_',
+          '\_\_subclasshook\_\_',
+          '\_\_truediv\_\_',
+          '\_\_trunc\_\_',
+          '\_\_xor\_\_',
+          'bit\_length',
+          'conjugate',
+          'denominator',
+          'imag',
+          'numerator',
+          'real']
+\end{Verbatim}
+        
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}42}]:} \PY{p}{(}\PY{l+m+mi}{1}\PY{p}{)}\PY{o}{.}\PY{n}{bit\PYZus{}length}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+            \begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}42}]:} 1
+\end{Verbatim}
+        
+    This has implications for how assignment works in Python.
+
+Let's create a trivial class:
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}43}]:} \PY{k}{class} \PY{n+nc}{Thing}\PY{p}{:} \PY{k}{pass}
+\end{Verbatim}
+
+    and instantiate it:
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}44}]:} \PY{n}{x} \PY{o}{=} \PY{n}{Thing}\PY{p}{(}\PY{p}{)}
+         \PY{n}{x}
+\end{Verbatim}
+
+            \begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}44}]:} <\_\_main\_\_.Thing instance at 0x10b88c1b8>
+\end{Verbatim}
+        
+    Here, \texttt{x} is simply a ``label'' for the object that we created
+when calling \texttt{Thing}. That object resides at the memory location
+that is identified when we print \texttt{x}. Notice that if we create
+another \texttt{Thing}, we create an new object, and give it a label. We
+know it is a new object because it has its own memory location.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}45}]:} \PY{n}{y} \PY{o}{=} \PY{n}{Thing}\PY{p}{(}\PY{p}{)}
+         \PY{n}{y}
+\end{Verbatim}
+
+            \begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}45}]:} <\_\_main\_\_.Thing instance at 0x10b88c0e0>
+\end{Verbatim}
+        
+    What if we assign \texttt{x} to \texttt{z}?
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}46}]:} \PY{n}{z} \PY{o}{=} \PY{n}{x}
+         \PY{n}{z}
+\end{Verbatim}
+
+            \begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}46}]:} <\_\_main\_\_.Thing instance at 0x10b88c1b8>
+\end{Verbatim}
+        
+    We see that the object labeled with \texttt{z} is the same as the object
+as that labeled with \texttt{x}. So, we say that \texttt{z} is a label
+(or name) with a \emph{binding} to the object created by \texttt{Thing}.
+
+So, there are no ``variables'', in the sense of a container for values,
+in Python. There are only labels and bindings.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}47}]:} \PY{n}{x}\PY{o}{.}\PY{n}{name} \PY{o}{=} \PY{l+s}{\PYZsq{}}\PY{l+s}{thing x}\PY{l+s}{\PYZsq{}}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}48}]:} \PY{n}{z}\PY{o}{.}\PY{n}{name}
+\end{Verbatim}
+
+            \begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}48}]:} 'thing x'
+\end{Verbatim}
+        
+    This can get you into trouble. Consider the following (seemingly
+inoccuous) way of creating a dictionary of emtpy lists:
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}49}]:} \PY{n}{evil\PYZus{}dict} \PY{o}{=} \PY{n+nb}{dict}\PY{o}{.}\PY{n}{fromkeys}\PY{p}{(}\PY{n}{column\PYZus{}names}\PY{p}{,} \PY{p}{[}\PY{p}{]}\PY{p}{)}
+         \PY{n}{evil\PYZus{}dict}
+\end{Verbatim}
+
+            \begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}49}]:} \{'Patient': [], 'Stool': [], 'Taxon': [], 'Tissue': []\}
+\end{Verbatim}
+        
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}50}]:} \PY{n}{evil\PYZus{}dict}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{Tissue}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{l+m+mi}{5}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}51}]:} \PY{n}{evil\PYZus{}dict}
+\end{Verbatim}
+
+            \begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}51}]:} \{'Patient': [5], 'Stool': [5], 'Taxon': [5], 'Tissue': [5]\}
+\end{Verbatim}
+        
+    Why did this happen?
+
+    \subsection{Generators}\label{generators}
+
+When a Python functions is called, it creates a namespace for the
+function, executes the code that comprises the function (creating
+objects inside the namespace as required), and returns some result to
+its caller. After the return, everything inside the namespace (including
+the namespace itself) is gone, and is created anew when the function is
+called again.
+
+However, one particular class of functions in Python breaks this
+pattern, returning a value to the caller while still active, and able to
+return subsequent values as needed. Python \textbf{\emph{generators}}
+employ \texttt{yield} statements in place of \texttt{return}, allowing a
+sequence of values to be generated without having to create a new
+function namespace each time. In other languages, this construct is
+known as a \emph{coroutine}.
+
+For example, we may want to have a function that returns a sequence of
+values; let's consider, for a simple illustration, the Fibonacci
+sequence:
+
+\[F_i = F_{i-2} + F_{i-1}\]
+
+its certaintly possible to write a standard Python function that returns
+however many Fibonacci numbers that we need:
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}52}]:} \PY{k}{def} \PY{n+nf}{fibonacci}\PY{p}{(}\PY{n}{size}\PY{p}{)}\PY{p}{:}
+             \PY{n}{F} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{empty}\PY{p}{(}\PY{n}{size}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{int}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+             \PY{n}{a}\PY{p}{,} \PY{n}{b} \PY{o}{=} \PY{l+m+mi}{0}\PY{p}{,} \PY{l+m+mi}{1}
+             \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{xrange}\PY{p}{(}\PY{n}{size}\PY{p}{)}\PY{p}{:}
+                 \PY{n}{F}\PY{p}{[}\PY{n}{i}\PY{p}{]} \PY{o}{=} \PY{n}{a}
+                 \PY{n}{a}\PY{p}{,} \PY{n}{b} \PY{o}{=} \PY{n}{b}\PY{p}{,} \PY{n}{a} \PY{o}{+} \PY{n}{b}
+             \PY{k}{return} \PY{n}{F}
+\end{Verbatim}
+
+    and this works just fine:
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}53}]:} \PY{n}{fibonacci}\PY{p}{(}\PY{l+m+mi}{20}\PY{p}{)}
+\end{Verbatim}
+
+            \begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}53}]:} array([   0,    1,    1,    2,    3,    5,    8,   13,   21,   34,   55,
+                  89,  144,  233,  377,  610,  987, 1597, 2584, 4181])
+\end{Verbatim}
+        
+    However, what if we need one number at a time, or if we need a million
+or 10 million values? In the first case, you would somehow have to store
+the values from the last iteration, and restore the state to the
+function each time it is called. In the second case, you would have to
+generate and then store a very large number of values, most of which you
+may not need right now.
+
+A more sensible solution is to create a \texttt{generator}, which
+calculates a single value in the sequence, then \emph{returns control
+back to the caller}. This allows the generator to be called again,
+resuming the sequence generation where it left off. Here's the Fibonacci
+function, implemented as a generator:
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}54}]:} \PY{k}{def} \PY{n+nf}{gfibonacci}\PY{p}{(}\PY{n}{size}\PY{p}{)}\PY{p}{:}
+             \PY{n}{a}\PY{p}{,} \PY{n}{b} \PY{o}{=} \PY{l+m+mi}{0}\PY{p}{,} \PY{l+m+mi}{1}
+             \PY{k}{for} \PY{n}{\PYZus{}} \PY{o+ow}{in} \PY{n+nb}{xrange}\PY{p}{(}\PY{n}{size}\PY{p}{)}\PY{p}{:}
+                 \PY{k}{yield} \PY{n}{a}
+                 \PY{n}{a}\PY{p}{,} \PY{n}{b} \PY{o}{=} \PY{n}{b}\PY{p}{,} \PY{n}{a} \PY{o}{+} \PY{n}{b}
+\end{Verbatim}
+
+    Notice that there is no \texttt{return} statement at all; just
+\texttt{yield}, which is where a value is returned each time one is
+requested. The \texttt{yield} statement is what defines a generator.
+
+When we call our generator, rather than a sequence of Fibonacci numbers,
+we get a generator object:
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}55}]:} \PY{n}{f} \PY{o}{=} \PY{n}{gfibonacci}\PY{p}{(}\PY{l+m+mi}{100}\PY{p}{)}
+         \PY{n}{f}
+\end{Verbatim}
+
+            \begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}55}]:} <generator object gfibonacci at 0x10b88e640>
+\end{Verbatim}
+        
+    A generator has a \texttt{\_\_next\_\_()} method that can be called
+either via the method \texttt{generator.next()} or the builtin function
+\texttt{next()}. The call to \texttt{next} executes the generator until
+the \texttt{yield} statement is reached, returning the next generated
+value, and then pausing until another call to \texttt{next} occurs:
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}56}]:} \PY{n}{f}\PY{o}{.}\PY{n}{next}\PY{p}{(}\PY{p}{)}\PY{p}{,} \PY{n}{f}\PY{o}{.}\PY{n}{next}\PY{p}{(}\PY{p}{)}\PY{p}{,} \PY{n+nb}{next}\PY{p}{(}\PY{n}{f}\PY{p}{)}
+\end{Verbatim}
+
+            \begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}56}]:} (0, 1, 1)
+\end{Verbatim}
+        
+    A generator is a type of \texttt{iterator}. If we call a function that
+supports iterables using a generator as an argument, it will know how to
+use the generator.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}57}]:} \PY{n}{np}\PY{o}{.}\PY{n}{array}\PY{p}{(}\PY{n+nb}{list}\PY{p}{(}\PY{n}{f}\PY{p}{)}\PY{p}{)}
+\end{Verbatim}
+
+            \begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}57}]:} array([2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987, 1597, 2584,
+                4181, 6765, 10946, 17711, 28657, 46368, 75025, 121393, 196418,
+                317811, 514229, 832040, 1346269, 2178309, 3524578, 5702887, 9227465,
+                14930352, 24157817, 39088169, 63245986, 102334155, 165580141,
+                267914296, 433494437, 701408733, 1134903170, 1836311903, 2971215073,
+                4807526976, 7778742049, 12586269025, 20365011074, 32951280099,
+                53316291173, 86267571272, 139583862445, 225851433717, 365435296162,
+                591286729879, 956722026041, 1548008755920, 2504730781961,
+                4052739537881, 6557470319842, 10610209857723, 17167680177565,
+                27777890035288, 44945570212853, 72723460248141, 117669030460994,
+                190392490709135, 308061521170129, 498454011879264, 806515533049393,
+                1304969544928657, 2111485077978050, 3416454622906707,
+                5527939700884757, 8944394323791464, 14472334024676221,
+                23416728348467685, 37889062373143906, 61305790721611591,
+                99194853094755497, 160500643816367088, 259695496911122585,
+                420196140727489673, 679891637638612258, 1100087778366101931,
+                1779979416004714189, 2880067194370816120, 4660046610375530309,
+                7540113804746346429, 12200160415121876738L, 19740274219868223167L,
+                31940434634990099905L, 51680708854858323072L, 83621143489848422977L,
+                135301852344706746049L, 218922995834555169026L], dtype=object)
+\end{Verbatim}
+        
+    What happens when we reach the ``end'' of a generator?
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}58}]:} \PY{n}{a\PYZus{}few\PYZus{}fibs} \PY{o}{=} \PY{n}{gfibonacci}\PY{p}{(}\PY{l+m+mi}{2}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}59}]:} \PY{n}{a\PYZus{}few\PYZus{}fibs}\PY{o}{.}\PY{n}{next}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+            \begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}59}]:} 0
+\end{Verbatim}
+        
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}60}]:} \PY{n}{a\PYZus{}few\PYZus{}fibs}\PY{o}{.}\PY{n}{next}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+            \begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}60}]:} 1
+\end{Verbatim}
+        
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}61}]:} \PY{n}{a\PYZus{}few\PYZus{}fibs}\PY{o}{.}\PY{n}{next}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+
+        ---------------------------------------------------------------------------
+    StopIteration                             Traceback (most recent call last)
+
+        <ipython-input-61-0eaea96ec098> in <module>()
+    ----> 1 a\_few\_fibs.next()
+    
+
+        StopIteration: 
+
+    \end{Verbatim}
+
+    Thus, generators signal when there are no further values to generate by
+throwing a \texttt{StopIteration} exception. We must either handle this
+exception, or create a generator that is infinite, which we can do in
+this example by replacing a \texttt{for} loop with a \texttt{while}
+loop:
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}62}]:} \PY{k}{def} \PY{n+nf}{infinite\PYZus{}fib}\PY{p}{(}\PY{p}{)}\PY{p}{:}
+             \PY{n}{a}\PY{p}{,} \PY{n}{b} \PY{o}{=} \PY{l+m+mi}{0}\PY{p}{,} \PY{l+m+mi}{1}
+             \PY{k}{while} \PY{n+nb+bp}{True}\PY{p}{:}
+                 \PY{k}{yield} \PY{n}{a}
+                 \PY{n}{a}\PY{p}{,} \PY{n}{b} \PY{o}{=} \PY{n}{b}\PY{p}{,} \PY{n}{a} \PY{o}{+} \PY{n}{b}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}63}]:} \PY{n}{f} \PY{o}{=} \PY{n}{infinite\PYZus{}fib}\PY{p}{(}\PY{p}{)}
+         \PY{n}{vals} \PY{o}{=} \PY{p}{[}\PY{n}{f}\PY{o}{.}\PY{n}{next}\PY{p}{(}\PY{p}{)} \PY{k}{for} \PY{n}{\PYZus{}} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{l+m+mi}{10000}\PY{p}{)}\PY{p}{]}
+         \PY{n}{vals}\PY{p}{[}\PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{p}{]}
+\end{Verbatim}
+
+            \begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}63}]:} 20793608237133498072112648988642836825087036094015903119682945866528501423455686648927456034305226515591757343297190158010624794267250973176133810179902738038231789748346235556483191431591924532394420028067810320408724414693462849062668387083308048250920654493340878733226377580847446324873797603734794648258113858631550404081017260381202919943892370942852601647398213554479081823593715429566945149312993664846779090437799284773675379284270660175134664833266377698642012106891355791141872776934080803504956794094648292880566056364718187662668970758537383352677420835574155945658542003634765324541006121012446785689171494803262408602693091211601973938229446636049901531963286159699077880427720289235539329671877182915643419079186525118678856821600897520171070499437657067342400871083908811800976259727431820539554256869460815355918458253398234382360435762759823179896116748424269545924633204614137992850814352018738480923581553988990897151469406131695614497783720743461373756218685106856826090696339815490921253714537241866911604250597353747823733268178182198509240226955826416016690084749816072843582488613184829905383150180047844353751554201573833105521980998123833253261228689824051777846588461079790807828367132384798451794011076569057522158680378961532160858387223882974380483931929541222100800313580688585002598879566463221427820448492565073106595808837401648996423563386109782045634122467872921845606409174360635618216883812562321664442822952537577492715365321134204530686742435454505103269768144370118494906390254934942358904031509877369722437053383165360388595116980245927935225901537634925654872380877183008301074569444002426436414756905094535072804764684492105680024739914490555904391369218696387092918189246157103450387050229300603241611410707453960080170928277951834763216705242485820801423866526633816082921442883095463259080471819329201710147828025221385656340207489796317663278872207607791034431700112753558813478888727503825389066823098683355695718137867882982111710796422706778536913192342733364556727928018953989153106047379741280794091639429908796650294603536651238230626L
+\end{Verbatim}
+        
+    \subsection{Exercise: Translate R to
+Python}\label{exercise-translate-r-to-python}
+
+Recode the secant search function from Bios 301 from R to Python.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}64}]:} \PY{o}{\PYZpc{}}\PY{k}{load} \PY{n}{http}\PY{p}{:}\PY{o}{/}\PY{o}{/}\PY{n}{git}\PY{o}{.}\PY{n}{io}\PY{o}{/}\PY{o}{\PYZhy{}}\PY{l+m+mi}{2}\PY{n}{DM8Q}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}65}]:} \PY{c}{\PYZsh{} Write your code here}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}66}]:} \PY{c}{\PYZsh{} Run this cell to load the answer}
+         \PY{o}{\PYZpc{}}\PY{k}{load} \PY{n}{http}\PY{p}{:}\PY{o}{/}\PY{o}{/}\PY{n}{git}\PY{o}{.}\PY{n}{io}\PY{o}{/}\PY{n}{h5jqBg}
+\end{Verbatim}
+
+    How about a modified secant functiont that uses a generator?
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}67}]:} \PY{c}{\PYZsh{} Write your code here}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}68}]:} \PY{c}{\PYZsh{} Run this cell to load the answer}
+         \PY{o}{\PYZpc{}}\PY{k}{load} \PY{n}{http}\PY{p}{:}\PY{o}{/}\PY{o}{/}\PY{n}{git}\PY{o}{.}\PY{n}{io}\PY{o}{/}\PY{o}{\PYZhy{}}\PY{n}{CSooQ}
+\end{Verbatim}
+
+    \subsection{References}\label{references}
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  \href{http://learnpythonthehardway.org/book/}{Learn Python the Hard
+  Way}\\
+\item
+  \href{http://learnxinyminutes.com/docs/python/}{Learn X in Y Minutes
+  (where X=Python)}\\
+\item
+  \href{http://pythonforbiologists.com/index.php/29-common-beginner-python-errors-on-one-page/}{29
+  common beginner Python errors on one page}
+\item
+  \href{http://www.jeffknupp.com/blog/2013/02/14/drastically-improve-your-python-understanding-pythons-execution-model/}{Understanding
+  Python's Execution Model}
+\end{itemize}
+
+    \begin{center}\rule{3in}{0.4pt}\end{center}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}69}]:} \PY{k+kn}{from} \PY{n+nn}{IPython.core.display} \PY{k+kn}{import} \PY{n}{HTML}
+         \PY{k}{def} \PY{n+nf}{css\PYZus{}styling}\PY{p}{(}\PY{p}{)}\PY{p}{:}
+             \PY{n}{styles} \PY{o}{=} \PY{n+nb}{open}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{styles/custom.css}\PY{l+s}{\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{r}\PY{l+s}{\PYZdq{}}\PY{p}{)}\PY{o}{.}\PY{n}{read}\PY{p}{(}\PY{p}{)}
+             \PY{k}{return} \PY{n}{HTML}\PY{p}{(}\PY{n}{styles}\PY{p}{)}
+         \PY{n}{css\PYZus{}styling}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+            \begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}69}]:} <IPython.core.display.HTML at 0x10b895290>
+\end{Verbatim}
+        
+
+    % Add a bibliography block to the postdoc
+    
+    
+    
+    \end{document}

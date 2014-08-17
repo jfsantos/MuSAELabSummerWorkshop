@@ -1,0 +1,11 @@
+markdown        : kramdown
+kramdown        :
+  entity_output : as_input # &mdash; is output as &mdash;
+  smart_quotes  : [39, 39, 34, 34] # decimal for left/right single/double quotes
+pygments        : true
+exclude         : [branding, "*.Rmd"]
+contact         : "joao.eel@gmail.com"
+github_url      : "https://github.com/jfsantos"
+swc_prefix      : "http://www.seaandsailor.com"
+twitter_name    : "@seaandsailor"
+twitter_url     : "https://twitter.com/seaandsailor"

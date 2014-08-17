@@ -1,0 +1,160 @@
+---
+layout: bootcamp
+root: .
+venue: MuSAE Lab Summer Workshop
+address: 123 College Street, Euphoria
+country: United-States
+humandate: Aug 18, 2014
+humantime: 9:00 am - 4:30 pm
+startdate: 2014-08-18
+enddate: 2014-08-18
+registration: restricted
+instructor: ["João"]
+helper: ["Milton", "Hubert"]
+contact: joao.eel@gmail.com
+---
+<!--
+    Edit the values in the parameter block above to be appropriate for your bootcamp.
+    Please use three-letter month names for the 'humandate' field.
+-->
+
+<!--
+    This block includes the Eventbrite registration widget if 'eventbrite' has been set in the header.
+-->
+{% if page.eventbrite %}
+<iframe src="//www.eventbrite.com/tickets-external?eid={{page.eventbrite}}&ref=etckt" frameborder="0" width="100%" scrolling="auto"></iframe>
+{% endif %}
+
+<h2>General Information</h2>
+
+<p>
+  Workshop objectives
+</p>
+
+<!--
+    Modify this block to reflect the target audience for your bootcamp.
+    In particular, if it is only open to people from a particular institution,
+    or if specialized prerequisite knowledge is required, please mention that.
+-->
+<p>
+  <strong>Who:</strong>
+  The course is aimed at graduate students and other researchers which are familiar with one programming language (we are assuming MATLAB is that programming language).
+</p>
+
+<!--
+    Modify the block below if there are any special requirements.
+-->
+<p>
+  <strong>Requirements:</strong>
+  Participants must bring a laptop with a few specific software packages installed
+  (listed below).
+</p>
+
+<!--
+    This block automatically inserts a contact email address if one has been specified for the page.
+    If one hasn't, this block inserts the generic contact address for Software Carpentry.
+-->
+<p>
+  <strong>Contact</strong>:
+  Please mail
+  {% if page.contact %}
+    <a href='mailto:{{page.contact}}'>{{page.contact}}</a>
+  {% else %}
+    <a href='mailto:{{site.contact}}'>{{site.contact}}</a>
+  {% endif %}
+  for more information.
+</p>
+
+<hr/>
+
+<!--
+    Edit this block to show the schedule for your bootcamp.
+-->
+<h2>Schedule</h2>
+
+<div class="row-fluid">
+  <div class="span6">
+    <table class="table table-striped">
+      <tr> <td>09:00</td> <td>Introduction</td> </tr>
+      <tr> <td>09:15</td> <td>The Python programming language</td> </tr>
+      <tr> <td><em>10:15</em></td> <td><em>Coffee break</em></td> </tr>
+      <tr> <td>10:30</td> <td>Numpy and Scipy</td> </tr>
+      <tr> <td>12:30</td> <td><em>Lunch break</em></td> </tr>
+      <tr> <td><em>13:30</em></td><td>Best Practices for Scientific Computing</td> </tr>
+      <tr> <td>14:30</td> <td>Version Control with Git</td> </tr>
+      <tr> <td>16:00</td> <td>Wrap-up</td> </tr>
+    </table>
+  </div>
+</div>  
+<hr/>
+
+<!--
+    Edit this block to show what topics will be covered.
+-->
+<h2>Syllabus</h2>
+
+<div class="row-fluid">
+  <div class="span6">
+    <h3>Programming in Python</h3>
+    <ul>
+      <li>Language basics and development tools (IPython notebook/Spyder)</li>
+      <li>Vector and matrix manipulation with Numpy</li>
+      <li>Brief overview of the Scipy framework</li>
+      <li>Plotting with Matplotlib</li>
+      <li>Installing and using libraries</li>
+      <li>More if time allows...</li>
+    </ul>
+  </div>
+</div>
+
+<div class="row-fluid">
+  <div class="span6">
+    <h3>Best Practices for Scientific Computing</h3>
+    <ul>
+      <li>Write programs for people, not computers</li>
+      <li>Let the computer do the work</li>
+      <li>Make incremental changes</li>
+      <li>Don't repeat yourself (or others)</li>
+      <li>Plan for mistakes</li>
+      <li>Optimize software only after it works correctly</li>
+      <li>Document design and purpose, not mechanics</li>
+      <li>Collaborate</li>
+    </ul>
+  </div>
+</div>
+
+<div class="row-fluid">
+  <div class="span6">
+    <h3>Version Control with Git</h3>
+    <ul>
+      <li>Creating a repository</li>
+      <li>Recording changes to files: <code>add</code>, <code>commit</code>, ...</li>
+      <li>Viewing changes: <code>status</code>, <code>diff</code>, ...</li>
+      <li>Ignoring files</li>
+      <li>Working on the web: <code>clone</code>, <code>pull</code>, <code>push</code>, ...</li>
+      <li>Resolving conflicts</li>
+      <li>Open licenses</li>
+      <li>Where to host work, and why</li>
+      <li><a href="novice/ref/02-git.html">Reference...</a></li>
+    </ul>
+  </div>
+</div>
+
+<hr/>
+
+<!--
+    Edit the setup instructions in _includes/setup.html to reflect your bootcamp.
+    (In particular, most bootcamps teach either Python or R, not both.)
+-->
+
+<h2>Setup</h2>
+
+<p>
+  To participate in this workshop, 
+  you will need working copies of the software described below.
+  Please make sure to install everything
+  (or at least to download the installers)
+  <em>before</em> the start of your bootcamp.
+</p>
+
+{% include setup.html %}
